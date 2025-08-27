@@ -17,8 +17,17 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you for your message! We will get back to you soon.");
+    
+    // Create WhatsApp message
+    const message = `Hello RkEnterprise!%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0A%0AMessage: ${formData.message}`;
+    const whatsappUrl = `https://wa.me/919818061301?text=${message}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form
     setFormData({ name: "", email: "", phone: "", message: "" });
+    alert("Redirecting to WhatsApp...");
   };
 
   return (
@@ -32,7 +41,7 @@ const Contact = () => {
             Delhi - 110001
           </p>
           <p>
-            <i className="fas fa-phone"></i> +91 9588563701
+            <i className="fas fa-phone"></i> +91 9818061301
           </p>
           <p>
             <i className="fas fa-envelope"></i> info@rkenterprise.com
