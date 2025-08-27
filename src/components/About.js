@@ -6,9 +6,6 @@ const About = () => {
       <h2 className="section-title">About RkEnterprise</h2>
       <div className="about-content">
         <div className="owner-section">
-          <div className="owner-image">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Ramkishan Sharma - Founder" className="owner-photo" />
-          </div>
           <div className="owner-info">
             <h3>Ramkishan Sharma</h3>
             <p className="owner-title">Founder & Lead Designer</p>
