@@ -2293,14 +2293,10 @@ body::after {
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    width: 280px;
-  }
-  
-  .sidebar-toggle {
-    width: 45px;
-    height: 45px;
-    font-size: 1.1rem;
+  .navbar-brand,
+  .sidebar,
+  .sidebar-overlay {
+    display: none;
   }
   
   .features-grid {
