@@ -744,44 +744,66 @@ body::before {
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem 3%;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
   }
   
   .hamburger {
     display: flex;
+    z-index: 1001;
   }
   
   .nav-links {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100vh;
     background: rgba(26, 26, 26, 0.98);
     flex-direction: column;
-    padding: 1rem 0;
-    transform: translateY(-100%);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    border-top: 1px solid #333;
+    z-index: 999;
   }
   
   .nav-links.nav-open {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     visibility: visible;
   }
   
   .nav-links li {
-    margin: 0.5rem 0;
+    margin: 1rem 0;
     text-align: center;
   }
   
   .nav-links a {
     display: block;
-    padding: 0.5rem;
-    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: #d4af37;
   }
   
   .logo {
