@@ -27,3 +27,14 @@ A premium interior design website for RkEnterprise, Delhi's leading interior des
 
 ```
 npm run build
+```
+
+## Deploy to GitHub Pages
+
+```
+npm run deploy
+```
+
+## Live Demo
+
+View the live website at: [https://jangirakesh.github.io/RkEnterprise](https://jangirakesh.github.io/RkEnterprise)
