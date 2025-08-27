@@ -32,7 +32,7 @@ const Contact = () => {
             Delhi - 110001
           </p>
           <p>
-            <i className="fas fa-phone"></i> +91 9818061301
+            <i className="fas fa-phone"></i> +91 9588563701
           </p>
           <p>
             <i className="fas fa-envelope"></i> info@rkenterprise.com
