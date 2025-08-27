@@ -7,7 +7,7 @@ const About = () => {
       <div className="about-content">
         <div className="owner-section">
           <div className="owner-image">
-            <img src="/owner.jpg" alt="Ramkishan Sharma - Founder" className="owner-photo" />
+            <img src={`${process.env.PUBLIC_URL}/owner.jpg`} alt="Ramkishan Sharma - Founder" className="owner-photo" />
           </div>
           <div className="owner-info">
             <h3>Ramkishan Sharma</h3>
