@@ -707,15 +707,63 @@ body::before {
   border-top: 1px solid #333;
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #d4af37;
+  transition: 0.3s;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem 3%;
-    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  .hamburger {
+    display: flex;
   }
   
   .nav-links {
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(26, 26, 26, 0.98);
+    flex-direction: column;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #333;
+  }
+  
+  .nav-links.nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-links li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  
+  .nav-links a {
+    display: block;
+    padding: 0.5rem;
+    font-size: 1.1rem;
   }
   
   .logo {
@@ -724,16 +772,25 @@ body::before {
   
   .hero {
     padding: 0 1rem;
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+  
+  .hero-content {
+    padding: 2rem 1rem;
   }
   
   .hero-content h1 {
     font-size: 2.5rem;
     line-height: 1.2;
+    margin-bottom: 1.5rem;
   }
   
   .hero-content p {
     font-size: 1.1rem;
-    padding: 0 1rem;
+    padding: 0;
+    margin-bottom: 2rem;
+    line-height: 1.4;
   }
   
   .cta-button {
