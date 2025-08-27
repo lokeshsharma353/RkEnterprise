@@ -21,7 +21,7 @@ const Contact = () => {
 
     // Create WhatsApp message
     const message = `Hello RkEnterprise!%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0A%0AMessage: ${formData.message}`;
-    const whatsappUrl = `https://wa.me/919588563701?text=${message}`;
+    const whatsappUrl = `https://wa.me/9588563701?text=${message}`;
 
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");
