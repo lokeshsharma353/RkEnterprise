@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/RkEnterprise/static/css/main.44d448b6.css",
+    "main.js": "/RkEnterprise/static/js/main.06f150c9.js",
+    "index.html": "/RkEnterprise/index.html",
+    "main.44d448b6.css.map": "/RkEnterprise/static/css/main.44d448b6.css.map",
+    "main.06f150c9.js.map": "/RkEnterprise/static/js/main.06f150c9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44d448b6.css",
+    "static/js/main.06f150c9.js"
+  ]
+}
