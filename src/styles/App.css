@@ -642,6 +642,13 @@ body::before {
   bottom: 0;
   background: radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.08) 0%, transparent 40%);
   animation: contactGlow 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes contactGlow {
@@ -691,12 +698,23 @@ body::before {
   padding: 1rem;
   border-radius: 5px;
   font-family: inherit;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: text;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.contact-form {
+  position: relative;
+  z-index: 5;
 }
 
 /* Footer */
