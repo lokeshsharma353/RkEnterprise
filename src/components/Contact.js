@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const Contact = () => {
     phone: "",
     message: "",
   });
+  const [ref] = useScrollAnimation();
 
   const handleChange = (e) => {
     setFormData({
@@ -33,7 +35,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" ref={ref} className="contact">
       <h2 className="section-title">Contact Us</h2>
       <div className="contact-content">
         <div className="contact-info">

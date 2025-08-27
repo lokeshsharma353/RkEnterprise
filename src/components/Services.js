@@ -1,6 +1,9 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Services = () => {
+  const [ref] = useScrollAnimation();
+  
   const services = [
     {
       icon: 'fas fa-home',
@@ -35,7 +38,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="services">
+    <section id="services" ref={ref} className="services">
       <h2 className="section-title">Our Services</h2>
       <div className="services-grid">
         {services.map((service, index) => (

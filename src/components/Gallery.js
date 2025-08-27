@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Gallery = () => {
   const [zoomedImage, setZoomedImage] = useState(null);
   const [visibleImages, setVisibleImages] = useState(9);
+  const [ref] = useScrollAnimation();
 
   const allImages = [
     // Living Rooms
@@ -44,7 +46,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="gallery">
+    <section id="gallery" ref={ref} className="gallery">
       <h2 className="section-title">Our Work</h2>
       <div className="gallery-grid">
         {allImages.slice(0, visibleImages).map((image, index) => (
