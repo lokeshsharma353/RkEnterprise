@@ -1,15 +1,836 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="theme-color" content="#1a1a1a" />
-    <meta name="description" content="RkEnterprise - Premium Interior Design Solutions in Delhi" />
-    <title>RkEnterprise - Interior Design Delhi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <div id="root"></div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      RkEnterprise - Luxury Interior Design Delhi | Award-Winning Designers
+    </title>
+    <meta
+      name="description"
+      content="Transform your space with RkEnterprise - Delhi's premier luxury interior design studio. 150+ projects, 10+ years experience. Get free consultation today."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Cursor Follower - Removed -->
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loader">
+        <div class="loader-text">RkEnterprise</div>
+        <div class="loader-bar"></div>
+      </div>
+    </div>
+
+    <!-- Theme Toggle - Removed -->
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="navbar" id="navbar">
+      <a href="#home" class="logo">
+        <span class="logo-text">RkEnterprise</span>
+      </a>
+      <div class="nav-center">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" onclick="closeMenu()">Home</a></li>
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#team" onclick="closeMenu()">Team</a></li>
+          <li><a href="#services" onclick="closeMenu()">Services</a></li>
+          <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+          <li><a href="#process" onclick="closeMenu()">Process</a></li>
+          <li><a href="#testimonials" onclick="closeMenu()">Reviews</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <button class="cta-nav-btn" onclick="scrollToSection('contact')">
+          Get Quote
+        </button>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-bg-video">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="hero-title">
+          <span class="title-line">Luxury Interior</span>
+          <span class="title-line gradient-text">Design Excellence</span>
+        </h1>
+        <div class="hero-tagline">
+          <span class="tagline-item">✨ Bespoke Designs</span>
+          <span class="tagline-item">🎯 Premium Quality</span>
+          <span class="tagline-item">⚡ Fast Delivery</span>
+        </div>
+        <p class="hero-subtitle">
+          Transforming spaces into extraordinary experiences with bespoke design
+          solutions that reflect your unique vision and lifestyle.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+            <span class="stat-number" data-count="150">0</span>
+            <span class="stat-label">Luxury Projects</span>
+          </div>
+          <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+            <span class="stat-number" data-count="25">0</span>
+            <span class="stat-label">Years Excellence</span>
+          </div>
+          <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+            <span class="stat-number" data-count="100">0</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+          <button class="btn-primary" onclick="scrollToSection('portfolio')">
+            <span>View Portfolio</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <button class="btn-secondary" onclick="openConsultationModal()">
+            <span>Free Consultation</span>
+            <i class="fas fa-calendar"></i>
+          </button>
+        </div>
+
+        <div class="hero-scroll-indicator">
+          <div class="scroll-text">Scroll to explore</div>
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+
+      <!-- Mobile Quick Links -->
+      <div class="mobile-quick-links">
+        <a
+          href="#services"
+          class="quick-link"
+          onclick="scrollToSection('services')"
+        >
+          <i class="fas fa-home"></i>
+          <span>Services</span>
+        </a>
+        <a
+          href="#portfolio"
+          class="quick-link"
+          onclick="scrollToSection('portfolio')"
+        >
+          <i class="fas fa-images"></i>
+          <span>Portfolio</span>
+        </a>
+        <a
+          href="#contact"
+          class="quick-link"
+          onclick="scrollToSection('contact')"
+        >
+          <i class="fas fa-phone"></i>
+          <span>Contact</span>
+        </a>
+        <a href="#about" class="quick-link" onclick="scrollToSection('about')">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </a>
+      </div>
+
+      <!-- Floating Particles -->
+      <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+
+      <!-- Floating Elements - Removed -->
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content" data-aos="fade-right">
+            <div class="section-badge">About Us</div>
+            <h2 class="section-title">
+              Crafting Extraordinary Spaces Since 2010
+            </h2>
+            <p class="about-text">
+              At RkEnterprise, we believe every space tells a story. Founded by
+              visionary designer <strong>Ramkishan Sharma</strong>, we've been
+              transforming dreams into reality for over a decade, creating
+              bespoke interiors that seamlessly blend luxury, functionality, and
+              personal expression.
+            </p>
+
+            <div class="about-features">
+              <div class="feature-item">
+                <i class="fas fa-award"></i>
+                <div>
+                  <h4>Award-Winning Design</h4>
+                  <p>Recognized excellence in luxury interior design</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <div>
+                  <h4>Expert Team</h4>
+                  <p>Skilled designers and craftsmen</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-heart"></i>
+                <div>
+                  <h4>Client-Centric</h4>
+                  <p>Your vision, our expertise</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-outline" onclick="scrollToSection('portfolio')">
+              <span>Discover Our Story</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="about-visual" data-aos="fade-left">
+            <div class="founder-card">
+              <div class="founder-image">
+                <img
+                  src="owner.jpg"
+                  alt="Ramkishan Sharma"
+                  onerror="this.style.display='none'"
+                />
+                <div class="founder-badge">Founder</div>
+              </div>
+              <div class="founder-info">
+                <h3>Ramkishan Sharma</h3>
+                <p>Lead Designer & Visionary</p>
+                <div class="founder-stats">
+                  <span>25+ Years</span>
+                  <span>150+ Projects</span>
+                  <span>Delhi Based</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-timeline">
+              <div class="timeline-item">
+                <div class="year">2010</div>
+                <div class="milestone">Founded RkEnterprise</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">2015</div>
+                <div class="milestone">50+ Luxury Projects</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">2020</div>
+                <div class="milestone">Industry Recognition</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">2024</div>
+                <div class="milestone">150+ Happy Clients</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">Our Team</div>
+          <h2 class="section-title">Meet Our Design Experts</h2>
+          <p class="section-subtitle">
+            Our talented team of designers and specialists work together to
+            bring your vision to life.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-image">
+              <img
+                src="owner.jpg"
+                alt="Ramkishan Sharma"
+                onerror="this.style.display='none'"
+              />
+              <div class="member-overlay">
+                <div class="member-social">
+                  <a href="#" class="social-link"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                  <a href="#" class="social-link"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3>Ramkishan Sharma</h3>
+              <p class="member-role">Founder & Lead Designer</p>
+              <p class="member-description">
+                Visionary designer with 25+ years of experience in luxury
+                interior design.
+              </p>
+              <div class="member-stats">
+                <span>150+ Projects</span>
+                <span>25+ Years</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-image">
+              <img
+                src="anil-sharma.jpg"
+                alt="Anil Sharma"
+                onerror="this.style.display='none'"
+              />
+              <div class="member-overlay">
+                <div class="member-social">
+                  <a href="#" class="social-link"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                  <a href="#" class="social-link"
+                    ><i class="fab fa-behance"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3>Anil Sharma</h3>
+              <p class="member-role">3D Designer & Visualization Expert</p>
+              <p class="member-description">
+                Specialist in creating stunning 3D visualizations and
+                architectural renderings.
+              </p>
+              <div class="member-stats">
+                <span>3D Modeling</span>
+                <span>Visualization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">Our Expertise</div>
+          <h2 class="section-title">Comprehensive Design Solutions</h2>
+          <p class="section-subtitle">
+            From concept to completion, we offer end-to-end interior design
+            services tailored to your unique needs and lifestyle.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div
+            class="service-card premium"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="service-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="service-content">
+              <h3>Luxury Residential</h3>
+              <p>
+                Bespoke home interiors that reflect your personality and
+                lifestyle with premium materials and craftsmanship.
+              </p>
+              <ul class="service-features">
+                <li>Complete home makeovers</li>
+                <li>Room-by-room design</li>
+                <li>Smart home integration</li>
+              </ul>
+              <div class="service-price">Starting ₹2L</div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="service-content">
+              <h3>Commercial Spaces</h3>
+              <p>
+                Professional environments that enhance productivity and reflect
+                your brand identity.
+              </p>
+              <ul class="service-features">
+                <li>Office design</li>
+                <li>Retail spaces</li>
+                <li>Hospitality interiors</li>
+              </ul>
+              <div class="service-price">Starting ₹5L</div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="fas fa-couch"></i>
+            </div>
+            <div class="service-content">
+              <h3>Custom Furniture</h3>
+              <p>
+                Handcrafted furniture pieces designed specifically for your
+                space and requirements.
+              </p>
+              <ul class="service-features">
+                <li>Bespoke furniture</li>
+                <li>Space optimization</li>
+                <li>Premium materials</li>
+              </ul>
+              <div class="service-price">Starting ₹50K</div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <div class="service-content">
+              <h3>Design Consultation</h3>
+              <p>
+                Expert guidance on color schemes, materials, and design concepts
+                for your project.
+              </p>
+              <ul class="service-features">
+                <li>Color consultation</li>
+                <li>Material selection</li>
+                <li>Design planning</li>
+              </ul>
+              <div class="service-price">Starting ₹10K</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="services-cta" data-aos="fade-up" data-aos-delay="500">
+          <h3>Ready to Transform Your Space?</h3>
+          <p>Get a personalized quote for your project today</p>
+          <button class="btn-primary" onclick="openConsultationModal()">
+            <span>Get Free Consultation</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">Portfolio</div>
+          <h2 class="section-title">Our Masterpieces</h2>
+          <p class="section-subtitle">
+            Explore our collection of award-winning interior design projects
+            that showcase our commitment to excellence.
+          </p>
+        </div>
+
+        <div class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="residential">
+            Residential
+          </button>
+          <button class="filter-btn" data-filter="commercial">
+            Commercial
+          </button>
+          <button class="filter-btn" data-filter="luxury">Luxury</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+
+        <div class="portfolio-cta" data-aos="fade-up">
+          <button class="btn-outline" onclick="loadMoreProjects()">
+            <span>Load More Projects</span>
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">Our Process</div>
+          <h2 class="section-title">How We Work</h2>
+          <p class="section-subtitle">
+            Our proven 4-step process ensures your project is completed on time,
+            within budget, and exceeds expectations.
+          </p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Consultation</h3>
+              <p>
+                We understand your vision, requirements, and budget through
+                detailed discussions.
+              </p>
+            </div>
+          </div>
+          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Design & Planning</h3>
+              <p>
+                Our team creates detailed 3D designs and project timelines for
+                your approval.
+              </p>
+            </div>
+          </div>
+          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Execution</h3>
+              <p>
+                Skilled craftsmen bring the design to life with premium
+                materials and attention to detail.
+              </p>
+            </div>
+          </div>
+          <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h3>Delivery</h3>
+              <p>
+                Final walkthrough and handover of your beautifully transformed
+                space.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">Client Reviews</div>
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">
+            Don't just take our word for it - hear from our satisfied clients
+            about their experience with RkEnterprise.
+          </p>
+        </div>
+
+        <div class="testimonials-slider" id="testimonialsSlider">
+          <!-- Testimonials will be loaded by JavaScript -->
+        </div>
+
+        <div class="testimonials-nav">
+          <button class="nav-btn prev" onclick="prevTestimonial()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="testimonials-dots" id="testimonialsDots"></div>
+          <button class="nav-btn next" onclick="nextTestimonial()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info" data-aos="fade-right">
+            <div class="section-badge">Get In Touch</div>
+            <h2 class="section-title">
+              Let's Create Something Amazing Together
+            </h2>
+            <p class="contact-description">
+              Ready to transform your space? Get in touch with our design
+              experts for a personalized consultation.
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="method-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="method-info">
+                  <h4>Visit Our Studio</h4>
+                  <p>Sadh Nagar, Palam<br />New Delhi - 110001</p>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="method-info">
+                  <h4>Call Us</h4>
+                  <p>+91 9588563701<br />Mon - Sat: 9AM - 7PM</p>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="method-info">
+                  <h4>Email Us</h4>
+                  <p>info@rkenterprise.com<br />We'll respond within 24hrs</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="contact-form-container" data-aos="fade-left">
+            <form class="contact-form" onsubmit="submitForm(event)">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Your Phone"
+                  required
+                />
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="form-group">
+                <select name="service" required>
+                  <option value="">Select Service</option>
+                  <option value="residential">Residential Design</option>
+                  <option value="commercial">Commercial Design</option>
+                  <option value="furniture">Custom Furniture</option>
+                  <option value="consultation">Design Consultation</option>
+                </select>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="form-group">
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your project..."
+                  rows="4"
+                  required
+                ></textarea>
+                <i class="fas fa-comment"></i>
+              </div>
+              <button type="submit" class="btn-primary form-submit">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <span class="logo-text">RkEnterprise</span>
+            </div>
+            <p class="footer-description">
+              Transforming spaces into extraordinary experiences with luxury
+              interior design solutions since 2010.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Residential Design</a></li>
+              <li><a href="#services">Commercial Spaces</a></li>
+              <li><a href="#services">Custom Furniture</a></li>
+              <li><a href="#services">Design Consultation</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#testimonials">Reviews</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Contact Info</h4>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Sadh Nagar, Palam, New Delhi - 110001</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+91 9588563701</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@rkenterprise.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 RkEnterprise. All rights reserved. | Founder: Ramkishan
+            Sharma
+          </p>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Consultation Modal -->
+    <div class="modal-overlay" id="consultationModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeConsultationModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-header">
+          <h3>Free Design Consultation</h3>
+          <p>Let's discuss your dream space</p>
+        </div>
+        <form class="consultation-form" onsubmit="submitConsultation(event)">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <select name="projectType" required>
+            <option value="">Project Type</option>
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial</option>
+            <option value="renovation">Renovation</option>
+          </select>
+          <select name="budget" required>
+            <option value="">Budget Range</option>
+            <option value="50k-2l">₹50K - ₹2L</option>
+            <option value="2l-5l">₹2L - ₹5L</option>
+            <option value="5l-10l">₹5L - ₹10L</option>
+            <option value="10l+">₹10L+</option>
+          </select>
+          <textarea
+            name="details"
+            placeholder="Tell us about your project..."
+            rows="3"
+          ></textarea>
+          <button type="submit" class="btn-primary">
+            <span>Book Free Consultation</span>
+            <i class="fas fa-calendar-check"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Lead Capture Popup -->
+    <div class="popup-overlay" id="leadPopup">
+      <div class="popup-content">
+        <button class="popup-close" onclick="closeLeadPopup()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="popup-header">
+          <h3>✨ Design Your Dream Space with Us ✨</h3>
+          <p>Share your details to receive a complimentary consultation and our exclusive Style Inspiration Guide.</p>
+        </div>
+        <form class="popup-form" id="leadPopupForm" onsubmit="submitLeadPopup(event)">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="tel" name="phone" placeholder="Your Phone">
+          <button type="submit" class="btn-primary">
+            <span>Book My Free Consultation</span>
+            <i class="fas fa-gift"></i>
+          </button>
+        </form>
+        <div class="thank-you-message" id="thankYouMessage" style="display: none;">
+          <i class="fas fa-check-circle"></i>
+          <h3>Thank You!</h3>
+          <p>We've received your details and will contact you soon with your complimentary consultation and Style Inspiration Guide.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

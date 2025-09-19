@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RkEnterprise - Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f5f5; color: #333; }
+        .header { background: #000; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 2rem; }
+        .stat-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .stat-number { font-size: 2rem; font-weight: 700; color: #000; }
+        .stat-label { color: #666; margin-top: 0.5rem; }
+        .content { padding: 0 2rem 2rem; }
+        .tabs { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .tab { padding: 0.75rem 1.5rem; background: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; }
+        .tab.active { background: #000; color: white; }
+        .data-table { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .table-header { background: #f8f9fa; padding: 1rem; font-weight: 600; border-bottom: 1px solid #eee; }
+        .table-row { padding: 1rem; border-bottom: 1px solid #eee; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 100px; gap: 1rem; align-items: center; }
+        .table-row:hover { background: #f8f9fa; }
+        .badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        .badge.lead { background: #e3f2fd; color: #1976d2; }
+        .badge.consultation { background: #f3e5f5; color: #7b1fa2; }
+        .badge.contact { background: #e8f5e8; color: #388e3c; }
+        .refresh-btn { background: #000; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+        .empty-state { text-align: center; padding: 3rem; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">RkEnterprise Admin</div>
+        <button class="refresh-btn" onclick="loadData()">
+            <i class="fas fa-refresh"></i> Refresh
+        </button>
+    </div>
+
+    <div class="stats" id="stats">
+        <div class="stat-card">
+            <div class="stat-number" id="totalLeads">0</div>
+            <div class="stat-label">Total Leads</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="totalConsultations">0</div>
+            <div class="stat-label">Consultations</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="totalContacts">0</div>
+            <div class="stat-label">Contact Forms</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="totalAll">0</div>
+            <div class="stat-label">Total Submissions</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('all')">All Data</button>
+            <button class="tab" onclick="showTab('leads')">Leads</button>
+            <button class="tab" onclick="showTab('consultations')">Consultations</button>
+            <button class="tab" onclick="showTab('contacts')">Contacts</button>
+        </div>
+
+        <div class="data-table">
+            <div class="table-header">Recent Submissions</div>
+            <div id="dataContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        let allData = {};
+        let currentTab = 'all';
+
+        async function loadData() {
+            try {
+                const response = await fetch('/api/admin/data');
+                allData = await response.json();
+                
+                // Update stats
+                document.getElementById('totalLeads').textContent = allData.leads.length;
+                document.getElementById('totalConsultations').textContent = allData.consultations.length;
+                document.getElementById('totalContacts').textContent = allData.contacts.length;
+                document.getElementById('totalAll').textContent = allData.total;
+                
+                showTab(currentTab);
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function showTab(tab) {
+            currentTab = tab;
+            
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event?.target?.classList.add('active') || document.querySelector(`[onclick="showTab('${tab}')"]`).classList.add('active');
+            
+            let data = [];
+            switch(tab) {
+                case 'leads':
+                    data = allData.leads || [];
+                    break;
+                case 'consultations':
+                    data = allData.consultations || [];
+                    break;
+                case 'contacts':
+                    data = allData.contacts || [];
+                    break;
+                default:
+                    data = [
+                        ...(allData.leads || []),
+                        ...(allData.consultations || []),
+                        ...(allData.contacts || [])
+                    ].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            }
+            
+            displayData(data);
+        }
+
+        function displayData(data) {
+            const container = document.getElementById('dataContainer');
+            
+            if (data.length === 0) {
+                container.innerHTML = '<div class="empty-state">No data available</div>';
+                return;
+            }
+            
+            container.innerHTML = data.map(item => `
+                <div class="table-row">
+                    <div>
+                        <strong>${item.name}</strong><br>
+                        <small>${item.email}</small>
+                    </div>
+                    <div>${item.phone}</div>
+                    <div>
+                        <span class="badge ${item.type.toLowerCase().replace(' ', '')}">${item.type}</span>
+                    </div>
+                    <div>
+                        <small>${item.date} ${item.time}</small>
+                    </div>
+                    <div>
+                        <button onclick="viewDetails(${item.id})" style="background: none; border: 1px solid #ddd; padding: 0.25rem 0.5rem; border-radius: 4px; cursor: pointer;">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function viewDetails(id) {
+            const allItems = [
+                ...(allData.leads || []),
+                ...(allData.consultations || []),
+                ...(allData.contacts || [])
+            ];
+            
+            const item = allItems.find(i => i.id === id);
+            if (item) {
+                alert(JSON.stringify(item, null, 2));
+            }
+        }
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>
