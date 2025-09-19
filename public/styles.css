@@ -1860,6 +1860,54 @@ section {
   
   .container {
     padding: 0 1rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Center all content */
+  .section-title {
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+  }
+  
+  /* Team center */
+  .team-grid {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .team-member {
+    text-align: center;
+  }
+  
+  /* Services center */
+  .service-card {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  /* Portfolio center */
+  .portfolio-item {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  /* Process center */
+  .process-step {
+    max-width: 350px;
+    margin: 20px auto 0;
+  }
+  
+  /* Contact center */
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-form-container {
+    margin: 0 1rem;
   }
   
   .section-title {
