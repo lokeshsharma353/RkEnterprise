@@ -1692,6 +1692,11 @@ section {
   display: none;
 }
 
+/* Mobile brand name - hidden by default */
+.mobile-brand-name {
+  display: none;
+}
+
 /* Mobile-First Responsive Design */
 @media (max-width: 1024px) {
   .about-grid,
@@ -1737,6 +1742,21 @@ section {
     text-align: center;
   }
   
+  /* Show mobile brand name */
+  .mobile-brand-name {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #000000, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
   .hero-title {
     font-size: 2.2rem;
     line-height: 1.2;
@@ -1752,11 +1772,15 @@ section {
   }
   
   .tagline-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(45deg, #000000, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #FFD700;
+    font-weight: 600;
   }
   
   .hero-subtitle {
